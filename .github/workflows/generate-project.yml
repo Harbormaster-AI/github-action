@@ -30,8 +30,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-      - name: print env
-        run: printenv
+      - name: list dir
+        run: ls $GITHUB_WORKSPACE
       - name: Install Harbormaster
         run: npm install -g harbormaster-ai
       - name: Initialize Harbormaster with provided token   
