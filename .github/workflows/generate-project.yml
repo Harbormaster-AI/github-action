@@ -3,7 +3,7 @@ name: Node.js CI
 on: [push]
 
 env:
-    HARBORMASTER_API_TOKEN: not-set-yet
+    HARBORMASTER_API_TOKEN: "sny6iLHAH4SMJU1F"
     PROJECT_YAML_FILE: "samples/project-as-code/django-project-as-code.yml" 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
       - name: Install Harbormaster
         run: npm install -g harbormaster-ai
       - name: Initialize Harbormaster with provided token   
-        run: harbormaster_ai init $HARBORMASTER_API_TOKEN
+        run: harbormaster-ai init $HARBORMASTER_API_TOKEN
       - name: Generating project...
         run: harbormaster_ai project_generate $GITHUB_REPOSITORY/$PROJECT_YAML_FILE -q true
       
