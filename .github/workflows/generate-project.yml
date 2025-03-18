@@ -1,1 +1,27 @@
+name: Node.js CI
 
+on: [push]
+
+env:
+    HARBORMASTER_API_TOKEN: not-set-yet
+    PROJECT_YAML_FILE: "samples/project-as-code/django-project-as-code.yml" 
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Harbormaster
+        run: npm install -g harbormaster_ai
+      - name: Initialize Harbormaster with provided token   
+        run: harbormaster_ai init $HARBORMASTER_API_TOKEN
+      - name: Generating project...
+        run: harbormaster_ai project_generate $GITHUB_REPOSITORY/$PROJECT_YAML_FILE -q true
+      
