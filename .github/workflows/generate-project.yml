@@ -4,7 +4,7 @@ on: [push]
 
 env:
     HARBORMASTER_API_TOKEN: "sny6iLHAH4SMJU1F"
-    PROJECT_YAML_FILE: "samples/project-as-code/django-project-as-code.yml" 
+    PROJECT_YAML_FILE: "samples/yamls/project-as-code/django-project-as-code.yml" 
 jobs:
   build:
 
