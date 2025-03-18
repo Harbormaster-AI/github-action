@@ -17,7 +17,7 @@ env:
 #
 # To learn more, visithttps://harbormaster.ai/2025/harbormaster-project-commands/
 ###################################################################
-    PROJECT_YAML_FILE: "samples/yamls/project-as-code/django-project-as-code.yml"
+    PROJECT_YAML_FILE: "samples/yamls/project.as.code/django-project-as-code.yml"
                         
 jobs:
   build:
