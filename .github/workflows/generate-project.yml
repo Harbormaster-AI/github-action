@@ -16,12 +16,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-  #    - name: Install dependencies
-  #      run: npm ci
+      - name: Initialize NPM
+        run: npm init
       - name: Install Harbormaster
         run: npm install -g harbormaster-ai
       - name: Initialize Harbormaster with provided token   
-        run: npm run harbormaster-ai init $HARBORMASTER_API_TOKEN
+        run: harbormaster_ai init $HARBORMASTER_API_TOKEN
       - name: Generating project...
         run: npm run harbormaster_ai project_generate $GITHUB_REPOSITORY/$PROJECT_YAML_FILE -q true
       
