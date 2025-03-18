@@ -19,7 +19,7 @@ jobs:
   #    - name: Install dependencies
   #      run: npm ci
       - name: Install Harbormaster
-        run: npm install -g harbormaster_ai
+        run: npm install -g harbormaster-ai
       - name: Initialize Harbormaster with provided token   
         run: harbormaster_ai init $HARBORMASTER_API_TOKEN
       - name: Generating project...
