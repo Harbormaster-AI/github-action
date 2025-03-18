@@ -19,7 +19,7 @@ jobs:
       - name: Install Harbormaster
         run: npm install -g harbormaster-ai
       - name: Initialize Harbormaster with provided token   
-        run: harbormasterinit $HARBORMASTER_API_TOKEN
+        run: harbormaster init $HARBORMASTER_API_TOKEN
       - name: Generating project...
         run: harbormaster project_generate $GITHUB_REPOSITORY/$PROJECT_YAML_FILE -q true
       
