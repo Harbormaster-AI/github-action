@@ -3,8 +3,22 @@ name: Node.js CI
 on: [push]
 
 env:
+###################################################################
+# This token is provided during the creation of your user account
+# on a Harbormaster instance.  If you do not have your token,
+# contact your Harbormaster administrator.
+###################################################################
     HARBORMASTER_API_TOKEN: "sny6iLHAH4SMJU1F"
-    PROJECT_YAML_FILE: "samples/yamls/project-as-code/django-project-as-code.yml" 
+
+
+###################################################################
+# This is the location and name of the file to provide to 
+# Harbormaster containing your directives to generate the project
+#
+# To learn more, visithttps://harbormaster.ai/2025/harbormaster-project-commands/
+###################################################################
+    PROJECT_YAML_FILE: "samples/yamls/project-as-code/django-project-as-code.yml"
+                        
 jobs:
   build:
 
@@ -21,5 +35,5 @@ jobs:
       - name: Initialize Harbormaster with provided token   
         run: harbormaster init $HARBORMASTER_API_TOKEN
       - name: Generating project...
-        run: harbormaster project_generate $GITHUB_REPOSITORY/$PROJECT_YAML_FILE -q true
+        run: harbormaster project_generate $GITHUB_WORKSPACE/$PROJECT_YAML_FILE -q true
       
