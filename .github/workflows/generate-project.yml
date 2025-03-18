@@ -14,10 +14,15 @@ env:
 ###################################################################
 # This is the location and name of the file to provide to 
 # Harbormaster containing your directives to generate the project
-#
-# To learn more, visithttps://harbormaster.ai/2025/harbormaster-project-commands/
+# The file used here is relative to GitHub env var $GITHUB_WORKSPACE
+# To learn more, visit https://harbormaster.ai/2025/harbormaster-project-commands/
 ###################################################################
     PROJECT_YAML_FILE: "samples/yamls/project.as.code/django-project-as-code.yml"
+###################################################################
+# the location of the Harbormaster Instanmce to connect to
+# leave it blank to use the default public instance
+###################################################################
+    HARBORMASTER_INSTANCE_URL: 
                         
 jobs:
   build:
@@ -30,10 +35,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
+###################################################################
+# Harbormaster CLI is a NodeJS pacage.  It first must be installed
+###################################################################
       - name: Install Harbormaster
-        run: npm install -g harbormaster-ai
+        run: npm install -g harbormaster-ai $HARBORMASTER_URL
+###################################################################
+# Once installed, it can be run using it's registered name of harbormaster
+# The token is provided here to validate your credentials
+#
+# If a connection to the default public instance is to be used, 
+# the url parameter can be left blank.  If accessing a different
+# instance, its URL must be provided.
+###################################################################
       - name: Initialize Harbormaster with provided token   
         run: harbormaster init $HARBORMASTER_API_TOKEN
-      - name: Generating project on file from the working dir $GITHUB_WORKSPACE...
+        
+      - name: Generating project using project.as.code file from the working dir $GITHUB_WORKSPACE...
         run: harbormaster project_generate $GITHUB_WORKSPACE/$PROJECT_YAML_FILE -q true
       
