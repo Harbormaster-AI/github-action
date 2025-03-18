@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: '20.x'
       - name: list dir
-        run: ls $GITHUB_WORKSPACE
+        run: ls $GITHUB_WORKSPACE/samples/yamls/project-as-code/
       - name: Install Harbormaster
         run: npm install -g harbormaster-ai
       - name: Initialize Harbormaster with provided token   
