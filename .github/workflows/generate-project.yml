@@ -13,7 +13,7 @@ env:
 # If you do not have your token,
 # contact your Harbormaster administrator.
 ###################################################################
-    HARBORMASTER_API_TOKEN: $HM_CLI_TOKEN
+    HARBORMASTER_API_TOKEN: "sny6iLHAH4SMJU1F"
 
 ###################################################################
 # This is the location and name of the file to provide to 
