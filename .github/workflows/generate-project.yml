@@ -59,5 +59,4 @@ jobs:
         run: harbormaster init $HARBORMASTER_API_TOKEN $HARBORMASTER_INSTANCE_URL
         
       - name: Generating project using project.as.code file from the working dir...
-        run: harbormaster project_generate $GITHUB_WORKSPACE/$PROJECT_YAML_FILE -q true
-      
+        run: harbormaster project_generate $GITHUB_WORKSPACE/$PROJECT_YAML_FILE      
