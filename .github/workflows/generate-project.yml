@@ -55,7 +55,8 @@ jobs:
 # the url parameter can be left blank.  If accessing a different
 # instance, its URL must be provided.
 ###################################################################
-      - name: Initialize Harbormaster with provided token   
-        run: |
-            harbormaster init $HARBORMASTER_API_TOKEN $HARBORMASTER_INSTANCE_URL
-            harbormaster project_generate $GITHUB_WORKSPACE/$PROJECT_YAML_FILE      
+      - name: Initialize Harbormaster 
+        run: harbormaster init $HARBORMASTER_API_TOKEN $HARBORMASTER_INSTANCE_URL
+            
+      - name: Generate project
+        run: harbormaster project_generate $GITHUB_WORKSPACE/$PROJECT_YAML_FILE      
