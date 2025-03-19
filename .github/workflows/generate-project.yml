@@ -19,7 +19,7 @@ env:
 # the location of the Harbormaster Instanmce to connect to
 # leave it blank to use the default public instance
 ###################################################################
-    HARBORMASTER_INSTANCE_URL: " "
+    HARBORMASTER_INSTANCE_URL: "http://35.184.162.42:8080/service"
     
 ###################################################################
 # This is the location and name of the file to provide to 
