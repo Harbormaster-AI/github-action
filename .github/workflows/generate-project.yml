@@ -5,7 +5,12 @@ on: [push]
 env:
 ###################################################################
 # This token is provided during the creation of your user account
-# on a Harbormaster instance.  If you do not have your token,
+# on a Harbormaster instance.  
+#
+# For security purposes, you should store is as an env variable
+# within GitHub and refer to it here.
+#
+# If you do not have your token,
 # contact your Harbormaster administrator.
 ###################################################################
     HARBORMASTER_API_TOKEN: "sny6iLHAH4SMJU1F"
@@ -22,7 +27,7 @@ env:
 # the location of the Harbormaster Instanmce to connect to
 # leave it blank to use the default public instance
 ###################################################################
-    HARBORMASTER_INSTANCE_URL: 
+    HARBORMASTER_INSTANCE_URL: "http://35.184.162.42:8080/"
                         
 jobs:
   build:
