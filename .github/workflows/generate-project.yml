@@ -19,7 +19,7 @@ env:
 # the location of the Harbormaster Instanmce to connect to
 # leave it blank to use the default public instance
 ###################################################################
-    HARBORMASTER_INSTANCE_URL: "http://35.184.162.42:8080/service"
+    HARBORMASTER_INSTANCE_URL: " "
     
 ###################################################################
 # This is the location and name of the file to provide to 
@@ -56,7 +56,7 @@ jobs:
 # instance, its URL must be provided.
 ###################################################################
       - name: Initialize Harbormaster with provided token   
-        run: harbormaster init $HARBORMASTER_API_TOKEN $HARBORMASTER_INSTANCE_URL
+        run: harbormaster init sny6iLHAH4SMJU1F $HARBORMASTER_INSTANCE_URL
         
       - name: Generating project using project.as.code file from the working dir...
         run: harbormaster project_generate $GITHUB_WORKSPACE/$PROJECT_YAML_FILE -q true
