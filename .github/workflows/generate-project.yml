@@ -7,7 +7,7 @@ env:
 # This token is provided during the creation of your user account
 # on a Harbormaster instance.  
 #
-# For security purposes, you should store is as an env variable
+# For security purposes, you should store is as a development environment secret
 # within GitHub and refer to it here.
 #
 # If you do not have your token,
