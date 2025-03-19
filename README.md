@@ -1,8 +1,8 @@
-# Harbormaster Project Acceleration For GitLab
+# Harbormaster Project Acceleration For GitHub
 
-The contained GitLab configuration file (_.gitlab-ci.yml_) is a simple, yet powerful way to leverage Harbormaster and GitLab to automate the generation of an MVP-quality project built on, tested, contained and deployed through your GitLab CI/CD pipeline.
+The contained Github configuration file (_.github/workflows/generate-project.yml_) is a simple, yet powerful way to leverage Harbormaster and GitHub to automate the generation of an SME quality project built on, tested, contained and deployed through your GitHub pipeline.
 
-This repository also contains [sample Harbormaster project generation YAML files](https://github.com/Harbormaster-AI/gitlab/tree/main/samples/yamls/project.as.code).  These instructions will reference the Django project file (_django-project-as-code.yaml_)
+This repository also contains [sample Harbormaster project generation YAML files](https://github.com/Harbormaster-AI/github-action/tree/main/samples/yamls/project.as.code).  These instructions will reference the Django project file (_django-project-as-code.yaml_)
 
 To take a quick test drive, follow the instructions in the *Quick Start* section or skip to the _Step-By-Step_ section to generate an application using more customized inputs.
 
@@ -12,18 +12,16 @@ Use this section to make the least amount of changes to see Harbormaster project
 
 1.) Git Clone this project in one of two ways:
 
-` SSH - git@github.com:Harbormaster-AI/gitlab.git`
-` HTTPS - https://github.com/Harbormaster-AI/gitlab.git`
+` SSH - git@github.com:Harbormaster-AI/github-action.git`
+` HTTPS - https://github.com/Harbormaster-AI/github-action.git`
 
-2.) Edit the _git_ section of `/samples/yamls/project.as.code/django-project-as-code.yml` to set your GitLab username and password.  Leave the password blank if you assigned a Person Token and applied it to your account at platform.harbormaster.ai
+2.) Edit the _git_ section of `/samples/yamls/project.as.code/django-project-as-code.yml` to set your GitHub username.  Leave the password blank because you assigned a Person Token and applied it to your account at platform.harbormaster.ai
 
-3.) Create a GitLab repository by the name of _django_repo_.
+3.) Create a GitHub repository by the name of _django_repo_ (any name will work).
 
-4.) Create a GitLab pipeline that is connected to the GitLab _django_repo_
+4.) Commit your changes to this project to the _django_repo_ and observe the GitHub Action status.
 
-5.) Commit your changes to this project to the _django_repo_ and observe the GitLab pipeline status.
-
-6.) Once the job in the pipeline is complete, check its status. A project will have been generated using a default model and a Django tech stack.
+6.) Once the action is complete, check its status. A project will have been generated using a default model and a Django tech stack.
 
 The project will eventually be built and tested with results as below:
 
@@ -35,18 +33,19 @@ The project will eventually be built and tested with results as below:
 ## Step 1 - Clone This Project
 Clone this project in one of two ways:
 
-` SSH - git@github.com:Harbormaster-AI/gitlab.git`
-` HTTPS - https://github.com/Harbormaster-AI/gitlab.git`
+` SSH - git@github.com:Harbormaster-AI/github-action.git`
+` HTTPS - https://github.com/Harbormaster-AI/github-action.git`
 
 ## Step 2 - Make Changes
 
 #### HARBORMASTER__API__TOKEN
-It is important you register @ harbormaster.ai in order to obtain an API token.  
-Once you have this token, assign it to an environment variable named 
+It is important you register @ platform.harbormaster.ai (or a different instance of HM) in order to obtain an API token.  
+For security purposes, you should store is as a development environment secret within GitHub and refer to it here. 
+Visit [here](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
 
 `HARBORMASTER__API__TOKEN`
 
-Learn more about assign environment variables [here](https://docs.gitlab.com/ee/ci/variables/README.html#add-a-cicd-variable-to-an-instance)
+Learn more about assigning environment variables [here](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables)
 
 
 #### PROJECT\_YAML\_FILE:
@@ -55,40 +54,40 @@ This YAML file contains the directives required to generate a project including:
 - model identifier (by name, id or file_path)
 - tech stack (by name or id), 
 - application options (name, description, author, etc..)
-- GitLab repo settings, 
+- GitHub repo settings, 
 - Docker settings
 - and more.... 
 
-See an example [here](https://github.com/Harbormaster-AI/gitlab/blob/main/samples/yamls/project.as.code/django-project-as-code.yml)
+See an example [here](https://github.com/Harbormaster-AI/github-action/blob/main/samples/yamls/project.as.code/django-project-as-code.yml)
 
 
 `PROJECT_YAML_FILE: "samples/yamls/project.as.code/django-project-as-code.yml"`
 
-#### GitLab Credentials
-Modify the git: section of the a Project-As-Code YAML file (e.g. django-project-as-code.yml) to assign your GitLab credentials
+#### GitHub Credentials
+Modify the git: section of the a Project-As-Code YAML file (e.g. django-project-as-code.yml) to assign your GitHub credentials
 
 ##### AWS Credentials
-Note: If using one of the AWS Lambda stacks, you will have to assign the access key and secret key as project level environment variables.  See [https://gitlab.com/help/ci/variables/README#variables](https://gitlab.com/help/ci/variables/README#variables) for more details. Be sure to name the accesskey USER\_AWS\_ACCESSKEY and name the secretkey USER\_AWS\_SECRETKEY.  Equally important, 
+Note: If using one of the AWS Lambda stacks, you will have to assign the access key and secret key as codebase level environment secrets.  Visit [here](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) for more details. Be sure to name the accesskey USER\_AWS\_ACCESSKEY and name the secretkey USER\_AWS\_SECRETKEY.  Equally important, 
 make sure you have the correct policies assigned for the related user (_AWSCodeDeployRoleForLambda, AWSLambdaExecute, AWSLambdaRole_, etc..)
 
 ## Step 3 - Create a Repository For Generated Project files
-Create a GitLab project repository (Repo A) for the generated project files.  This repository name must be the name you assigned in the GIT section of the _PROJECT_YAML_FILE_ (e.g. django-project-as-code.yml).
+Create a GitHub project repository (Repo Demo) for the generated project files.  This repository name must be the name you assigned in the GIT section of the _PROJECT_YAML_FILE_ (e.g. django-project-as-code.yml).
 
 ## Step 4 - Create a Project For This Cloned Project
-Create another GitLab project repository (Repo B) and commit this project to it.  Any name will do.  You are committing the modified _.gitlab-ci.yml_ file along with the _PROJECT_YAML_FILE_ discussed above.  Only the _.gitlab-ci.yml_ must be in the root.   
+Create another GitHub project repository (Repo Generate) and commit this project to it.  Any name will do.  You are committing the modified _generate-project.yml_ file along with the _PROJECT_YAML_FILE_ discussed above.  Only the _generate-project.yml_ must be in the _.github/workflows_ directory.   
 
 ## Step 5 - Commit Your Project
-Upon committing this project to Repo B, the _.gitlab-ci.yml_ should begin running within a bound GitLab pipeline. The project is now being generated by Harbormaster.
+Upon committing this project to Repo Generate, the _generate-project.yml_ should begin running within GitHub Action for this repository. Your project is now being generated by Harbormaster.
 
 ![alt text](http://harbormaster.ai/wp-content/uploads/2021/04/gitlab-job-running.png)
 
-## Step 6 - Watch Pipeline Execution
-Upon completion of Step 5, Harbormaster will commit all generated project files to Repo A.  This should cause a GitLab pipeline to run the generated _.gitlab-ci.yml_ file.  The generated project is now being built and tested.
+## Step 6 - Watch Action Execution
+Upon completion of Step 5, Harbormaster will commit all generated project files to Repo Demo.  This should cause a GitHub Action to execute the generated _.github/workflows/github-actions.yml_ file.  The generated project is now being built and tested.
 
 ![alt text](http://harbormaster.ai/wp-content/uploads/2021/04/gitlab-app-build-running-results.png)
 
 ## Congratulations!
-Using the power of GitLab and Harbormaster you just generated, built, tested, and (optionally) contained an entire application complete with core capabilities, build file, CI/CD config, and much more....
+Using the power of GitHub and Harbormaster you just generated, built, tested, and (optionally) contained an entire application complete with core capabilities, build file, CI/CD config, and much more....
 
 Best of luck in completing the application!
 
