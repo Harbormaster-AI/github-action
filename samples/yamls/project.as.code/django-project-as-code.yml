@@ -33,7 +33,7 @@ project:
         #      harbormaster_cli model_list --output pretty
         #
         # -----------------------------------------------------------------------------
-        name: company model
+        name: company models
 
     # -----------------------------------------------------------------------------
     # DevOps Project Creation Options
