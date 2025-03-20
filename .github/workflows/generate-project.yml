@@ -16,7 +16,7 @@ env:
     HARBORMASTER_API_TOKEN: "sny6iLHAH4SMJU1F"
 
 ###################################################################
-# the location of the Harbormaster Instanmce to connect to
+# the location of the Harbormaster Instance to connect to
 # leave it blank to use the default public instance
 ###################################################################
     HARBORMASTER_INSTANCE_URL: "http://35.184.162.42:8080/service"
