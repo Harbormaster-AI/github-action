@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Harbormaster Project Accelerator GitHub Action
 
 on: [push]
 
