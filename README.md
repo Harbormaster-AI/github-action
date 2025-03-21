@@ -1,10 +1,13 @@
 # Harbormaster Project Acceleration For GitHub
 
-The contained Github configuration file (_.github/workflows/generate-project.yml_) is a simple, yet powerful way to leverage Harbormaster and GitHub to automate the generation of an SME quality project built on, tested, contained and deployed through your GitHub pipeline.
+The contained Github configuration file (_.github/workflows/generate-project.yml_) is a simple, yet powerful way to leverage Harbormaster and GitHub to automate the generation of an SME quality project committed to a GitHub Repository and built, tested and optionally contained using GitHub Action.
 
-This repository also contains [sample Harbormaster project generation YAML files](https://github.com/Harbormaster-AI/github-action/tree/main/samples/yamls/project.as.code).  These instructions will reference the Django project file (_django-project-as-code.yaml_)
+This repository also contains [sample Harbormaster project generation YAML files](https://github.com/Harbormaster-AI/github-action/tree/main/samples/yamls/project.as.code).  These instructions will reference the Django project file (_django-project-as-code.yaml_) but there are others.
 
-To take a quick test drive, follow the instructions in the *Quick Start* section or skip to the _Step-By-Step_ section to generate an application using more customized inputs.
+Harbormaster is a model-driven platform, and therefore you will need a model representation of you domain. You can learn more about this [here]().
+
+If you do not have a model yet and want to take a quick test drive, follow the instructions in the *Quick Start* section.
+If you want to use your own model, skip to the _Step-By-Step_ section to generate an application using more customized inputs.
 
 ## Quick Start
 
@@ -15,7 +18,7 @@ Use this section to make the least amount of changes to see Harbormaster project
 ` SSH - git@github.com:Harbormaster-AI/github-action.git`
 ` HTTPS - https://github.com/Harbormaster-AI/github-action.git`
 
-2.) Edit the _git_ section of `/samples/yamls/project.as.code/django-project-as-code.yml` to set your GitHub username.  Leave the password blank because you assigned a Person Token and applied it to your account at platform.harbormaster.ai
+2.) Edit the _git_ section of `/samples/yamls/project.as.code/django-project-as-code.yml` to set your GitHub username.  Leave the password blank because you already assigned a Personal Token and applied it to your account at platform.harbormaster.ai
 
 3.) Create a GitHub repository by the name of _django_repo_ (any name will work).
 
